@@ -1,0 +1,41 @@
+/*Seletor universal. Aplicável a todo documento.*/
+* {
+    /*Define as margens do documento; indicado '0' remove.*/
+    margin: 0;
+    /*Define os espaçamentos entre os objetos; indicado '0' remove.*/
+    padding: 0;
+}
+
+body {
+    /*Define o tamanho, em vh (viewport height), de 'body'.*/
+    height: 100vh;
+    /*Coloca todas as letras do body em branco*/
+    color: white;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+/*Possbilidad ede agrupamento de seletores utilizando-se a vírgula*/
+body,
+input,
+textarea,
+button {
+    /*Negrito, mas é visto como contorno*/
+    /*font-weight: 400;
+    
+    /*Define o tamanho da font do(s) seletor(es)*/
+    /*font-size: 18px;*/
+
+    /*Tamanho da altura entre as linhas*/
+    /*line-height: 1;*/
+
+    /*Família da fonte utilizada, importada do https://fonts.google.com/. Segue uma ordem, se não ahcar o Nunito, busca as fontes sans-serif */
+    /*font-family: 'Nunito', sans-serif;*/
+
+    /*Pode-se agrupar as propriedades acima*/
+    font: 400 1.8rem/1 "Nunito", sans-serif;
+
+    /*px é uma medida fixa. Já o 'em' (que busca no elemento pai o referencial de tamanho, o elemento anterior) e o 'rem'(busca no elemento root ou o elemento HTML). O */
+}

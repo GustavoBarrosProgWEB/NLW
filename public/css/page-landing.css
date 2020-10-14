@@ -1,0 +1,58 @@
+#page-landing {
+    /*linear-gradient: Função que aplica um gradiente (rotação, de cor, para cor). O no-repeat sendo usado aqui, para que o browser não repita a o gradiente quando terminar o body. Assim fica um documento único*/
+    background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%) no-repeat;
+
+    /*Alinhamento de todos os textos ao centro*/
+    text-align: center;
+
+    /*Coloca o mínimo de altura de 100 view port, mas se passar, não deve ocorrer problema*/
+    min-height: 100vh;
+
+    /*Aplica aos elementos block ou inline que fiquem alinhados um ao lado do outro. Força este comportamento para alinhamento dentro da página */
+    display: flex;
+
+    /*Alinhar todos os elementos do display ao centro*/
+    align-items: center;
+}
+
+#container {
+    margin: auto;
+
+    /*Limitar as laterais do container*/
+    width: 90%;
+}
+
+/*Ao não separar o 'p' do da class '.visit' ele vai percorrer todos os 'p' da árvore desta classe*/
+.location,
+h1,
+.visit p {
+    height: 16vh;
+}
+
+.visit a {
+    width: 8rem;
+    height: 8rem;
+    background: #ffd666;
+    /*Remove todas as bordas*/
+    border: none;
+    /*Arredonda as bordas do elemento*/
+    border-radius: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /*o shorthand margin é definido por top, left, bottom e right 
+            (top) (left) (botton) (right)
+    margin: 10px, 10px,  10px,    10px;
+    */
+
+    margin: auto;
+
+    /*Cria uma transição suave para a mudança da cor do background do botão.*/
+    transition: background .3s;
+}
+
+/*Muda a cor do background do botão quando o mouse é posicionado sobre o botão*/
+.visit a:hover{
+    background-color: #96feff;
+}
