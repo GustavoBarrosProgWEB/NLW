@@ -18,8 +18,11 @@
 #container {
     margin: auto;
 
-    /*Limitar as laterais do container*/
-    width: 90%;
+    /*Limitar as laterais do container em 90% do limite pré-formatado*/
+    /*width: 90%;*/
+
+    /*Limitar as laterais do container, ficando em 90% até que chegue no limite de 112rem. Assim os elementos terão comportamento diferenciados até 90% e acima de 112rem outro comportamento.*/
+    width: min(90%, 112rem);
 }
 
 /*Ao não separar o 'p' do da class '.visit' ele vai percorrer todos os 'p' da árvore desta classe*/
@@ -40,7 +43,7 @@ h1,
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     /*o shorthand margin é definido por top, left, bottom e right 
             (top) (left) (botton) (right)
     margin: 10px, 10px,  10px,    10px;
@@ -49,10 +52,43 @@ h1,
     margin: auto;
 
     /*Cria uma transição suave para a mudança da cor do background do botão.*/
-    transition: background .3s;
+    transition: background 0.3s;
 }
 
 /*Muda a cor do background do botão quando o mouse é posicionado sobre o botão*/
-.visit a:hover{
+.visit a:hover {
     background-color: #96feff;
+}
+
+/*Versão Desktop*/
+/*Esta regra será aplicada se determinado parâmetro for verdadeiro. No caso será definido largura mínima de 760px. Somente pode ocorrer com a declaração de 'viewport' <meta name="viewport" ... /> no head e responsável pela aplicação do '@media'.
+A regra somente será aplicada quando a condição entre parênteses for atendida 'Se o mínimo de largura for maior do que 760px as regras abaixo serão aplicadas'*/
+
+@media (min-width: 760px) {
+    header {
+        display: flex;
+        align-items: center;
+        /*O spaece-between somente é disponível quando o display: flex é aplicado ao elemento e coloca um espaço entre eles.*/
+        justify-content: space-between;
+    }
+
+    .location,
+    h1,
+    .visit p {
+        /*O height deve ser recolocado no seu tamanho original (initial) para que os elementos da definidos anteriormente em 16vh (.location, h1, .visit p {height: 16vh;} não afete novamente este elemento.*/
+        height: initial;
+
+        /*Retorna o valor do alinhamento original e coloca, novamente o alinhmento para  esquerda, originalmente.*/
+        text-align: initial;
+    }
+
+    main h1 {
+        /*A função clamp irá limitar os valores máximos e mínimos para o tamanho da fonte.
+        Syntax: <absolute-size> | <relative-size> | <length-percentage>*/
+        font-size: clamp(4rem, 8vw, 8.4rem);
+        /*Garante que a fonte será setada em bold*/
+        font-weight: bold;
+        /*No leiaute há uma limitação de tamanho mínimo*/
+        width: min(300px, 80%);
+    }
 }
