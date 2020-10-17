@@ -1,43 +1,22 @@
-/*Uma regra CSS. Configurações de animações dos elementos
-@keyframes <nome da animação contextualizada>{*/
+/* Uma regra CSS. Configurações de animações dos elementos
+@keyframes <nome da animação contextualizada>{ */
 @keyframes up{
-    /*Ponto/valores de partida dos atributos*/
+    /* Ponto/valores de partida dos atributos */
     from{
         opacity: 0;
         transform: translateY(16px);
     }
-    /*Ponto/valores de chegada dos atributos*/
+    /* Ponto/valores de chegada dos atributos */
     to{
         opacity: 1;
         transform: translateY(0px);
     }
 }
 
-/*Criação da classe que será aplicada a aninmação*/
+/* Criação da classe que será aplicada a aninmação */
 .animate-up{
     animation-name: up;
     animation-duration: 300ms;
-    /*permite que os atributos atribuidos no 'to' fiquem no elemento de destino*/
+    /* permite que os atributos atribuidos no 'to' fiquem no elemento de destino */
     animation-fill-mode: backwards;
-}
-
-/*Aplica um delay para cada elemento*/
-#logo{
-    animation-delay: 50ms;
-}
-
-.location{
-    animation-delay: 100ms;
-}
-
-main h1{
-    animation-delay: 150ms;
-}
-
-.visit p{
-    animation-delay: 200ms;
-}
-
-.visit a{
-    animation-delay: 250ms;
 }

@@ -1,31 +1,58 @@
+/* Uma boa-prática para escrita do CSS é organizar os atributos de acordo com a sua ordem de aparição. Assim, a folha de estilos vai ficar de forma mais legível e lógica, facilitando a sua manutenção. */
+
 #page-landing {
-    /*linear-gradient: Função que aplica um gradiente (rotação, de cor, para cor). O no-repeat sendo usado aqui, para que o browser não repita a o gradiente quando terminar o body. Assim fica um documento único*/
+    /* linear-gradient: Função que aplica um gradiente (rotação, de cor, para cor). O no-repeat sendo usado aqui, para que o browser não repita a o gradiente quando terminar o body. Assim fica um documento único */
     background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%) no-repeat;
 
-    /*Alinhamento de todos os textos ao centro*/
+    /* Alinhamento de todos os textos ao centro */
     text-align: center;
 
-    /*Coloca o mínimo de altura de 100 view port, mas se passar, não deve ocorrer problema*/
+    /* Coloca o mínimo de altura de 100 view port, mas se passar, não deve ocorrer problema */
     min-height: 100vh;
 
-    /*Aplica aos elementos block ou inline que fiquem alinhados um ao lado do outro. Força este comportamento para alinhamento dentro da página */
+    /* Aplica aos elementos block ou inline que fiquem alinhados um ao lado do outro. Força este comportamento para alinhamento dentro da página  */
     display: flex;
 
-    /*Alinhar todos os elementos do display ao centro*/
-    align-items: center;
+    /* Alinhar todos os elementos do display ao centro. */
+    /* align-items: center; */
 }
 
 #container {
     margin: auto;
 
-    /*Limitar as laterais do container em 90% do limite pré-formatado*/
-    /*width: 90%;*/
+    /* Limitar as laterais do container em 90% do limite pré-formatado */
+    /* width: 90%; */
 
-    /*Limitar as laterais do container, ficando em 90% até que chegue no limite de 112rem. Assim os elementos terão comportamento diferenciados até 90% e acima de 112rem outro comportamento.*/
+    /* Limitar as laterais do container, ficando em 90% até que chegue no limite de 112rem. Assim os elementos terão comportamento diferenciados até 90% e acima de 112rem outro comportamento. */
     width: min(90%, 112rem);
 }
 
-/*Ao não separar o 'p' do da class '.visit' ele vai percorrer todos os 'p' da árvore desta classe*/
+/* Aplica um delay para cada elemento */
+#logo {
+    animation-delay: 50ms;
+}
+
+.location {
+    animation-delay: 100ms;
+}
+
+main h1 {
+    animation-delay: 150ms;
+    /* Repete-se as instruções para main para que o comportamento do h1 seja igual ana versão mobile quanto na desktop. */
+    /* A função clamp irá limitar os valores máximos e mínimos para o tamanho da fonte.
+    Syntax: <absolute-size> | <relative-size> | <length-percentage> */
+    font-size: clamp(4rem, 8vw, 8.4rem);
+    /* Garante que a fonte será setada em bold */
+    font-weight: bold;
+    /* No leiaute há uma limitação de tamanho mínimo */
+    /* width: min(300px, 80%); */
+}
+
+.visit p {
+    animation-delay: 200ms;
+}
+
+/* Ao não separar o 'p' do da class '.visit' ele vai percorrer todos os 'p' da árvore desta classe */
 .location,
 h1,
 .visit p {
@@ -33,62 +60,99 @@ h1,
 }
 
 .visit a {
-    width: 8rem;
-    height: 8rem;
+    /* Define a largura da caixa do elemento em relação à centésima parte do documento */
+    width: 7rem;
+
+    /* Define a altura da caixa do elemento em relação à centésima parte do documento */
+    height: 7rem;
+
+    /* Define a cor para as letras do elemento */
     background: #ffd666;
-    /*Remove todas as bordas*/
+
+    /* Remove todas as bordas */
     border: none;
-    /*Arredonda as bordas do elemento*/
-    border-radius: 3rem;
+
+    /* Arredonda as bordas do elemento */
+    border-radius: 2.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    /*o shorthand margin é definido por top, left, bottom e right 
+    /* o shorthand margin é definido por top, left, bottom e right 
             (top) (left) (botton) (right)
-    margin: 10px, 10px,  10px,    10px;
-    */
-
+    margin: 10px, 10px,  10px,    10px; */
     margin: auto;
 
-    /*Cria uma transição suave para a mudança da cor do background do botão.*/
+    /* Cria uma transição suave para a mudança da cor do background do botão. */
     transition: background 0.3s;
+
+    animation-delay: 250ms;
 }
 
-/*Muda a cor do background do botão quando o mouse é posicionado sobre o botão*/
+/* Muda a cor do background do botão quando o mouse é posicionado sobre o botão */
 .visit a:hover {
     background-color: #96feff;
 }
 
-/*Versão Desktop*/
-/*Esta regra será aplicada se determinado parâmetro for verdadeiro. No caso será definido largura mínima de 760px. Somente pode ocorrer com a declaração de 'viewport' <meta name="viewport" ... /> no head e responsável pela aplicação do '@media'.
-A regra somente será aplicada quando a condição entre parênteses for atendida 'Se o mínimo de largura for maior do que 760px as regras abaixo serão aplicadas'*/
+/* Versão Desktop */
+/* Esta regra será aplicada se determinado parâmetro for verdadeiro. No caso será definido largura mínima de 760px. Somente pode ocorrer com a declaração de 'viewport' <meta name="viewport" ... /> no head e responsável pela aplicação do '@media'.
+A regra somente será aplicada quando a condição entre parênteses for atendida 'Se o mínimo de largura for maior do que 760px as regras abaixo serão aplicadas' */
 
 @media (min-width: 760px) {
     header {
+        /* Coloca todos os elemento em caixas, um ao lado do outro.  */
         display: flex;
+
+        /* Coloca todos os elementos do display: flex ao centro. */
         align-items: center;
-        /*O spaece-between somente é disponível quando o display: flex é aplicado ao elemento e coloca um espaço entre eles.*/
+
+        /* O spaece-between somente é disponível quando o display: flex é aplicado ao elemento e coloca um espaço entre eles. */
         justify-content: space-between;
     }
 
     .location,
     h1,
     .visit p {
-        /*O height deve ser recolocado no seu tamanho original (initial) para que os elementos da definidos anteriormente em 16vh (.location, h1, .visit p {height: 16vh;} não afete novamente este elemento.*/
+        /* O height deve ser recolocado no seu tamanho original (initial) para que os elementos da definidos anteriormente em 16vh (.location, h1, .visit p {height: 16vh;} não afete novamente este elemento. */
         height: initial;
 
-        /*Retorna o valor do alinhamento original e coloca, novamente o alinhmento para  esquerda, originalmente.*/
+        /* Retorna o valor do alinhamento original e coloca, novamente o alinhmento para  esquerda, originalmente. */
         text-align: initial;
     }
 
+    .location {
+        /* O texto estava alinhado à esquerda, devido ao 'initial'. O leiaute figma estava alinhado à direita e, por isso, a necessidade de realinhamento do texto. */
+        text-align: right;
+        font-size: 1.8rem;
+        line-height: 1.5;
+    }
+
     main h1 {
-        /*A função clamp irá limitar os valores máximos e mínimos para o tamanho da fonte.
-        Syntax: <absolute-size> | <relative-size> | <length-percentage>*/
+        /* A função clamp irá limitar os valores máximos e mínimos para o tamanho da fonte.
+        Syntax: <absolute-size> | <relative-size> | <length-percentage> */
         font-size: clamp(4rem, 8vw, 8.4rem);
-        /*Garante que a fonte será setada em bold*/
+
+        /* Define o afastamento das linhas do texto do elemento */
+        line-height: .88;
+
+        /* Define espaçamentos 'top' | 'horizontal' | 'bottom' */
+        margin: clamp(10%, 9vh, 12%) 0 4rem;
+
+        /* Garante que a fonte será setada em bold */
         font-weight: bold;
-        /*No leiaute há uma limitação de tamanho mínimo*/
+
+        /* No leiaute há uma limitação de tamanho mínimo */
         width: min(300px, 80%);
+    }
+
+    .visit {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .visit p {
+        font-size: 2rem;
+        line-height: 1.5;
+        width: clamp(20rem, 20vw, 30rem)
     }
 }
